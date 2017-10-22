@@ -29,7 +29,7 @@ export default chatArray => {
           })
         })
       }
-      return axios.get(`http://api.icndb.com/jokes/random?firstName=${chatArray[1].text}&lastName=${chatArray[3].text}`)
+      return axios.get(`https://api.icndb.com/jokes/random?firstName=${chatArray[1].text}&lastName=${chatArray[3].text}`)
         .then(res => res.data.value.joke)
         .then(joke => ({
           sender: 'bot',
