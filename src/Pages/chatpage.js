@@ -15,7 +15,7 @@ class Chatpage extends Component {
   }
 
   componentDidUpdate = () => {
-    this.div.scrollTop = this.div.scrollHeight
+    
   }
 
   componentDidMount = async () => {
@@ -81,7 +81,6 @@ class Chatpage extends Component {
             pushMessage={this.pushMessage}
             message={this.state.message}
             inputChange={this.inputChange}
-            msgRef={el => this.div = el}
           />
         }
         <Fab toggleDialog={this.toggleDialog} dialogOpen={this.state.dialogOpen} />
