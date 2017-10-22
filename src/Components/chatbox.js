@@ -8,6 +8,10 @@ export class Chatbox extends Component {
     this.adjustScroller(this.div)
   }
 
+  componentDidMount = () => {
+    this.adjustScroller(this.div)
+  }
+
   render = () => {
     const { heading, chat, pushMessage, message, inputChange } = this.props
     return (

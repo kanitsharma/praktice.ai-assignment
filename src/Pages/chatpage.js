@@ -14,8 +14,14 @@ class Chatpage extends Component {
     }
   }
 
-  componentDidUpdate = () => {
-    
+  inputChange = event => {
+    this.setState({ message: event.target.value })
+  }
+
+  toggleDialog = () => {
+    this.setState(prevState => ({
+      dialogOpen: !prevState.dialogOpen
+    }))
   }
 
   componentDidMount = async () => {
@@ -43,10 +49,21 @@ class Chatpage extends Component {
     }
   }
 
-  toggleDialog = () => {
-    this.setState(prevState => ({
-      dialogOpen: !prevState.dialogOpen
-    }))
+  render() {
+    return (
+      <div className='chat-page'>
+        { this.state.dialogOpen &&
+          <Chatbox
+            heading='Praktice.ai Assignment'
+            chat={this.state.chat}
+            pushMessage={this.pushMessage}
+            message={this.state.message}
+            inputChange={this.inputChange}
+          />
+        }
+        <Fab toggleDialog={this.toggleDialog} dialogOpen={this.state.dialogOpen} />
+      </div>
+    )
   }
 
   pushMessage = event => {
@@ -65,27 +82,6 @@ class Chatpage extends Component {
         }))
     })
     this.setState({message: ''})
-  }
-
-  inputChange = event => {
-    this.setState({ message: event.target.value })
-  }
-
-  render() {
-    return (
-      <div className='chat-page'>
-        { this.state.dialogOpen &&
-          <Chatbox
-            heading='Praktice.ai Assignment'
-            chat={this.state.chat}
-            pushMessage={this.pushMessage}
-            message={this.state.message}
-            inputChange={this.inputChange}
-          />
-        }
-        <Fab toggleDialog={this.toggleDialog} dialogOpen={this.state.dialogOpen} />
-      </div>
-    )
   }
 }
 
