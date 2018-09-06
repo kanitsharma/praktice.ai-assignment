@@ -54,7 +54,7 @@ class Chatpage extends Component {
       <div className='chat-page'>
         { this.state.dialogOpen &&
           <Chatbox
-            heading='Praktice.ai Assignment'
+            heading='Dumb Bot'
             chat={this.state.chat}
             pushMessage={this.pushMessage}
             message={this.state.message}
