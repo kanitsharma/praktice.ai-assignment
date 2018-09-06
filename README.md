@@ -1,1 +1,1 @@
-## Praktice.ai Assignment
+## React ChatBot Implementation
